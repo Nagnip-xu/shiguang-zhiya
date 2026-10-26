@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: shiguang-zhiya
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm run preview
+    healthCheckPath: /api/health
+    envVars:
+      - key: IMAGE_API_BASE_URL
+        value: https://api.shuaiapi.com/v1
+      - key: IMAGE_API_KEY
+        sync: false
+      - key: IMAGE_MODEL
+        value: gpt-image-2.5
